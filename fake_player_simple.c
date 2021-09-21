@@ -45,7 +45,7 @@ struct timer
 
 
 //triggered with each pause, and writes the marker timestamp to a text file for import into audacity/hindenburg
-	void
+void
 marker_record_to_file(int master_timer_paused_ticks)
 {
 
@@ -71,7 +71,7 @@ marker_record_to_file(int master_timer_paused_ticks)
 
 //also triggered with each pause
 //overwrites previous stop timestamp with new timestamp each time for resume
-	void
+void
 stop_timestamp_record_to_file(int master_timer_paused_ticks)
 {
 
@@ -101,7 +101,7 @@ stop_timestamp_record_to_file(int master_timer_paused_ticks)
 //for resume_position
 //THIS IS EXTREMELY HELPFUL TO SHOW HOW TO PASS
 //AND ASSIGN POINTERS FOR int!!
-	void
+void
 get_resume_position(int *resume_position)
 {
 
@@ -146,7 +146,7 @@ play_beep(int channel, Mix_Chunk *chunk, int loops)
 
 
 //main player function!
-	int
+int
 main_player()
 {
 
@@ -467,7 +467,7 @@ main_player()
 }
 
 
-	int 
+int 
 main (int argc, char *argv[])
 {
 	//all the player stuff is handled by this function

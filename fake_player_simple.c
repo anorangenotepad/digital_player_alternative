@@ -127,7 +127,7 @@ get_resume_position(int *resume_position)
 }
 
 //plays beep(s) on start-up and close of main_player()
-	void
+void
 play_beep(int channel, Mix_Chunk *chunk, int loops)
 {
 

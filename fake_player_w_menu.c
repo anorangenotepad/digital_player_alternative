@@ -415,6 +415,12 @@ book_chooser_menu_sdl(char *selected_book)
   struct book_list *ptr;
 
   int chooser_loop_running = 1; //1 means 'true' (0 means 'false')
+  
+  //these are used for the error handling when 
+  // the + key is pressed and a book has not been
+  // selected
+  char checker [20] = "placeholder";
+  int book_menu_filter;
 
   if (start == NULL)
   {
@@ -458,8 +464,22 @@ book_chooser_menu_sdl(char *selected_book)
             printf("keep going\n");
             break;
           case SDLK_KP_PLUS:
-            printf("stop!\n");
-            chooser_loop_running = 0;
+	    //error handling that compares value of selected_book with checker
+	    //since selected_book is set to "placeholder" by default
+	    //if it is still "placeholder" after this step, that means a book has
+	    // not been chosen, so the message will be read
+	    // and loop will continue until a book has been selected
+	    book_menu_filter = strcmp(selected_book, checker);
+	    if (book_menu_filter != 0)
+	    {
+              printf("stop!\n");
+              chooser_loop_running = 0;
+	    }
+	    else
+	    {
+              char no_book [80] = "book not selected. please choose a book";
+	      text_to_speech_read(no_book);
+	    }
             break;
         }
       }
